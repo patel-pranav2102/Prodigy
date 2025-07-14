@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #2b5876, #4e4376);
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 200px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #00c6ff;
+  color: white;
+  cursor: pointer;
+}
+
+#weatherResult {
+  margin-top: 20px;
+  font-size: 18px;
+}
