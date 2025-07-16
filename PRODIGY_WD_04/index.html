@@ -3,60 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Pranav Patel | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <h1>Hello, I'm Pranav Patel</h1>
-      <p class="tagline">Web Developer | JavaScript Enthusiast | UI/UX Designer</p>
+    <div class="container nav-container">
+      <h1 class="logo">Pranav</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <section id="about">
+  <section id="hero" class="hero-section">
+  <div class="hero-content container">
+    <h1>Hello, I'm <span class="accent">Pranav Patel</span></h1>
+    <h2>I am a <span id="typed-text"></span><span class="cursor">|</span></h2>
+    <p>I build fast, modern, and accessible web applications for the digital world.</p>
+    <a href="#projects" class="btn">View My Projects</a>
+  </div>
+</section>
+
+
+  <section id="about" class="about-section">
     <div class="container">
       <h2>About Me</h2>
-      <p>I am a passionate web developer with experience in building responsive and user-friendly websites. I have a background in computer science and specialize in front-end development, UI/UX design, and React.js.</p>
-      <ul>
-        <li><strong>Education:</strong> B.Tech in Computer Science</li>
-        <li><strong>Experience:</strong> 2 Years as Frontend Developer</li>
-        <li><strong>Location:</strong> India</li>
-      </ul>
+      <p>I am a passionate web developer who loves creating beautiful and functional web applications. With expertise in JavaScript, React, Node.js, and PHP, I bring ideas to life.</p>
     </div>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="skills-section">
     <div class="container">
       <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>Git & GitHub</li>
-      </ul>
+      <div class="skills-grid">
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React.js</div>
+       
+        <div class="skill">PHP</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">Git & GitHub</div>
+      </div>
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="projects-section">
     <div class="container">
       <h2>Projects</h2>
-      <div class="project">
-        <h3>Portfolio Website</h3>
-        <p>Designed and developed a personal portfolio website using HTML, CSS, and JavaScript.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>A responsive and modern personal portfolio website built using HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="project-card">
+          <h3>Task Manager App</h3>
+          <p>Full-stack task manager app with Node.js backend and React frontend.</p>
+        </div>
+        <div class="project-card">
+          <h3>E-Commerce UI</h3>
+          <p>Frontend for a shopping website built with HTML, CSS Grid, and vanilla JS.</p>
+        </div>
       </div>
-      <div class="project">
-        <h3>Weather App</h3>
-        <p>Created a weather forecast app using OpenWeatherMap API and React.</p>
-      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Pranav Patel. All rights reserved</p>
-</footer>
-<button id="scrollTopBtn" title="Go to top">↑</button>
-<script src="script.js"></script>
+    <div class="container footer-container">
+      <p>© 2025 Pranav Patel | All rights reserved.</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn"><i class="fas fa-chevron-up"></i></button>
+
+
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+    
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+    
+          // Store hash
+          var hash = this.hash;
+    
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+    
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+    </script>
+
 </body>
 </html>
+

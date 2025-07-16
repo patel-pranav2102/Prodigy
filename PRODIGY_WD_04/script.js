@@ -1,28 +1,50 @@
-// Scroll to Top Button
+// Scroll to top button
 const scrollBtn = document.getElementById("scrollTopBtn");
 
 window.onscroll = () => {
-  scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  scrollBtn.style.display = window.scrollY > 400 ? "flex" : "none";
 };
 
-scrollBtn.onclick = () => {
+scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
-};
+});
+// Typing effect
+const textArray = ["Full-Stack Developer", "UI/UX Designer", "JavaScript Enthusiast", "Tech Learner"];
+let textIndex = 0;
+let charIndex = 0;
+let typingSpeed = 100;
+let deletingSpeed = 60;
+let delayBetweenWords = 2000;
 
-// Dynamic Year in Footer
-const footer = document.querySelector("footer p");
-const year = new Date().getFullYear();
-footer.innerHTML = `&copy; ${year} Pranav Patel. All rights reserved.`;
+function typeEffect() {
+  const typedText = document.getElementById("typed-text");
 
-// Optional: Dark Mode Toggle (if you want to add a switch)
-// const modeBtn = document.createElement("button");
-// modeBtn.textContent = "🌓 Toggle Theme";
-// modeBtn.style.marginTop = "10px";
-// document.querySelector("header .container").appendChild(modeBtn);
+  if (charIndex < textArray[textIndex].length) {
+    typedText.textContent += textArray[textIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeEffect, typingSpeed);
+  } else {
+    setTimeout(() => eraseEffect(), delayBetweenWords);
+  }
+}
 
-// let dark = false;
-// modeBtn.onclick = () => {
-//   document.body.style.background = dark ? "#f4f4f4" : "#1e1e2f";
-//   document.body.style.color = dark ? "#333" : "#f1f1f1";
-//   dark = !dark;
-// };
+function eraseEffect() {
+  const typedText = document.getElementById("typed-text");
+
+  if (charIndex > 0) {
+    typedText.textContent = textArray[textIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(eraseEffect, deletingSpeed);
+  } else {
+    textIndex = (textIndex + 1) % textArray.length;
+    setTimeout(typeEffect, typingSpeed);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("typed-text")) {
+    typeEffect();
+  }
+});
+
+
